@@ -1,0 +1,17 @@
+version: '3'
+services:
+  web:
+    build: .
+    tty: true
+    stdin_open: true
+    image: reddit_clone
+    container_name: reddit_clone
+    # volumes:
+    #   - type: bind
+    #     source: /home/faisal/uploads
+    #     target: /home/node/sharp_shopping_assistant_api/uploads
+    #   - type: bind
+    #     source: /home/faisal/sharpshoppingicons
+    #     target: /home/node/sharp_shopping_assistant_api/sharpshoppingicons
+    ports:
+      - "3002:3002"
