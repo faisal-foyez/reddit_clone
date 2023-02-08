@@ -33,6 +33,7 @@ function Header() {
             objectFit: 'contain'
           }}
         />
+        <BellIcon className='h-10 w-10 text-red-500' />
       </div>
       <div className='flex items-center mx-7 xl:min-w-[300px]'>
         <HomeIcon className='h-5 w-5' />
