@@ -1,0 +1,30 @@
+name: CICD for reddit_clone_nextjs_app
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: SSH deploy
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.KEY }}
+          port: ${{ secrets.PORT }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          script: |
+              cd apps/reddit_clone/
+              git pull origin main
+              docker kill reddit_clone
+              docker rm reddit_clone
+              docker rmi reddit_clone
+              docker-compose up -d
+              yes | docker image prune
