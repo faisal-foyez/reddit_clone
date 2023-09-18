@@ -15,3 +15,9 @@ services:
     #     target: /home/node/sharp_shopping_assistant_api/sharpshoppingicons
     ports:
       - "3002:3002"
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
