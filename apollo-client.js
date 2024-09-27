@@ -1,6 +1,6 @@
 import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client'
 const client = new ApolloClient({
-  uri: 'http://localhost:4000/',
+  uri: 'https://redditserver.faisalislam.net/',
   headers: {
     //Authorization: `Apikey ${process.env.NEXT_PUBLIC_STEPZEN_KEY}`,
     'Apollo-Require-Preflight': true
